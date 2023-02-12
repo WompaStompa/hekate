@@ -103,13 +103,9 @@ int create_config_entry()
 	f_puts("\nautoboot_list=", &fp);
 	itoa(h_cfg.autoboot_list, lbuf, 10);
 	f_puts(lbuf, &fp);
-	/*
-	 * Clamp value to default if it exceeds 20s to protect against corruption.
-	 * Allow up to 20s though for use in cases where user needs lots of time.
-	 * For example dock-only use and r2p with enough time to reach dock and cancel it.
-	*/
-	if (h_cfg.bootwait > 20)
-		h_cfg.bootwait = 3;
+	
+	//If I want to wait 83 minutes and 20 seconds for my Switch to boot, I'm gonna wait wait 83 minutes and 20 seconds for my Switch to boot.
+	
 	f_puts("\nbootwait=", &fp);
 	itoa(h_cfg.bootwait, lbuf, 10);
 	f_puts(lbuf, &fp);
